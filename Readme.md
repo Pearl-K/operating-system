@@ -9,9 +9,11 @@
 ## 2.1 Github 내 프로젝트 클론
 
 메인 프로젝트 fork!
+
 ![img.png](img/readme_main/clone_image.png)
 
 fork 생성! Owner를 본인으로 놓고 생성하면 됨!
+
 ![img.png](img/readme_main/fork_image.png)
 
 ## 2.2 인텔리제이 IDE 접속 및 커맨드
