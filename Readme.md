@@ -51,3 +51,17 @@ fork 생성! Owner를 본인으로 놓고 생성하면 됨!
 
 1. question.md에는 해당 챕터 담당자가 해당 챕터 관련 질문 내용 정리 후 업로드
 2. 정리 내용 이미지는 question 폴더 내의 image 폴더에 본인 이름으로 폴더 생성 후 저장
+
+## 2.5 이슈 관련 규칙
+
+1. 이슈 발행!
+
+![img.png](img/readme_main/issue.png)
+
+2. 이슈 작성, 초기엔 description 비우기
+
+![img.png](img/readme_main/write_issue.png)
+
+3. 답글 작성, 틀린 내용 혹은 더 알아봣으면 하는 내용, 좋은 내용이 있으면 알려주기!
+
+![img.png](img/readme_main/issue_comment.png)
