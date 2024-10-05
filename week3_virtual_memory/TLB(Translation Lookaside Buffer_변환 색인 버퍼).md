@@ -1,9 +1,9 @@
 ## 1. TLB의 역할 및 구조
 메모리를 고정 크기로 할당하여 사용하는 paging 방식에는 두 가지 문제점이 있었다.
-(1) 잦은 메모리 접근
-(2) 별도의 page table 을 위한 메모리 낭비
+- 잦은 메모리 접근
+- 별도의 page table 을 위한 메모리 낭비
 
-여기서 1번의 단점을 보완하기 위한 방식으로 TLB(Translation Lookaside Buffer, 변환 색인 버퍼)가 있다.
+여기서 첫 번째 단점을 보완하기 위한 방식으로 TLB(Translation Lookaside Buffer, 변환 색인 버퍼)가 있다.
 
 
 ### 역할
@@ -23,7 +23,11 @@
 
 ## 2. TLB hit와 TLB miss가 발생했을 때 동작 과정
 TLB hit와 miss는 하드웨어 or OS가 관리한다.
+
+
 둘 중, OS로 TLB를 관리하는게 장점이 많다. 크게 유연성과 단순함이 있다. 
+
+
 OS는 하드웨어 변경 없이 page table을 구현하는 모든 자료구조를 사용할 수 있고, OS TLB miss 핸들러가 작동하며 miss 처리를 해주기 때문에 하드웨어의 할 일이 없어진다.
 
 ![TLBhit](https://github.com/user-attachments/assets/dfbed3f8-bbb2-4189-9e96-70cbb10aa0d0)
