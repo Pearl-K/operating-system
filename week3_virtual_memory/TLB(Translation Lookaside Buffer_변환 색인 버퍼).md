@@ -63,7 +63,21 @@ OS는 하드웨어 변경 없이 page table을 구현하는 모든 자료구조�
 <img width="766" alt="TLB asid" src="https://github.com/user-attachments/assets/b614869c-29ac-4508-8b81-aeb7b246f899">
 
 
+
+## 4. TLB와 MMU 사이의 프로세스
+![TLB_n_MMU](https://github.com/Pearl-K/operating-system/blob/master/week3_virtual_memory/img/KangJinju/TLB_n_MMU.png)
+
+페이징 기법의 프로세스를 살펴보면 TLB의 사용 시점과 용도를 알 수 있다.
+
+CPU가 생성한 가상 주소에 대한 페이지 정보가 변환 우선참조 버퍼 안에 존재한다면, 시간적 지체 없이 바로 물리적 주소를 생성한다.
+존재하지 않는다면 페이지 테이블을 참조하는데, 이때 테이블에서 적중(hit)하면 TLB를 갱신하는 작업을 거친다.
+
+페이지 테이블에서 Page Fault가 발생하는 경우, OS에서 그 처리를 담당하는데 특히, MMU(Memory Management Unit)가 가상 기억장치 운영을 담당한다.
+MMU는 논리 주소를 물리 주소로 변환, 고정/동적 분할, 페이징, 세그먼테이션 등의 작업을 담당한다.
+
+
 ***
+
 
 ref.
 - [The role and operation of TLB for efficient paging](https://icksw.tistory.com/149)
