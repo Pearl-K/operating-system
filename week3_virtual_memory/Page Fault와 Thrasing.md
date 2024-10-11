@@ -4,7 +4,7 @@
 
 아래의 이미지처럼 Swap 공간은 실제 메모리 + disk 공간으로 구성되어 있다. 또한, swap 공간에서는 해당 페이지가 메모리에 존재하는 지 나타내는 Present Bit를 가지고 있다.
 
-![image](https://private-user-images.githubusercontent.com/106337673/373946795-f008ac86-4ceb-45ea-903a-34505f10461a.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mjg1NDcyNzQsIm5iZiI6MTcyODU0Njk3NCwicGF0aCI6Ii8xMDYzMzc2NzMvMzczOTQ2Nzk1LWYwMDhhYzg2LTRjZWItNDVlYS05MDNhLTM0NTA1ZjEwNDYxYS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQxMDEwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MTAxMFQwNzU2MTRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0xNDIzMWZkNGU2MWU3ZjU3ZmNjZmZmZTk2MTdjYTQ2M2E4OTk0MTlhOGNmNDlhNDU3NTNkYTlkOTdlNDYxYzc5JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.yB5wJ35CdRlwW54VPmNxc-K4EkxrWVo4r6ZZr0Amh18)
+![swap_space.png](img/KimJiMin/swap_space.png)
 
 ## 2. Page Fault
 
@@ -18,7 +18,7 @@ TLB가 있는 시스템에서 Swap 공간을 처리하는 과정은 다음과 �
 
 이 때 3번 과정에서 디스크에 있어서 가져오는 동작을 PAGE_FAULT라고 한다. 아래의 그림은 위를 슈도코드로 나타낸 것이다.
 
-![image](https://private-user-images.githubusercontent.com/106337673/373947209-ed6bfbec-0407-467d-80ce-2b76b9124b0d.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mjg1NDcyNzQsIm5iZiI6MTcyODU0Njk3NCwicGF0aCI6Ii8xMDYzMzc2NzMvMzczOTQ3MjA5LWVkNmJmYmVjLTA0MDctNDY3ZC04MGNlLTJiNzZiOTEyNGIwZC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQxMDEwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MTAxMFQwNzU2MTRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1hOGM3MjJlODMyNDhiNzVmNDgwNTJlNDUzMTI4ZDlmMGM5YmRlNmIyYzg1NjJiOGM2ZDY5ZDg5ZDVjNTdjMjMwJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.E-62LglhMfahA-2Mao9FkeMh2M7waRuuooc1CUdlRvA)
+![page_fault.png](img/KimJiMin/page_fault.png)
 
 ### 2-2. PAGE_FAULT_HANDLER 처리 과정
 
@@ -31,7 +31,7 @@ PAGE_FAULT가 뜨면 Trap 영역으로 넘어가게 되는데 Trap 영역에서 
 
 ## 3. 스레싱
 
-![image](https://private-user-images.githubusercontent.com/102043957/373919677-6c832bb7-c7ea-4f66-bc73-050f72bab564.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mjg1NDczMjksIm5iZiI6MTcyODU0NzAyOSwicGF0aCI6Ii8xMDIwNDM5NTcvMzczOTE5Njc3LTZjODMyYmI3LWM3ZWEtNGY2Ni1iYzczLTA1MGY3MmJhYjU2NC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQxMDEwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MTAxMFQwNzU3MDlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT0zMDY5N2QzM2FkODk2YjAyMzk2MWU1MzhlMDAwYjdhZWY3MmY4ZDcxYjI0NWEyNWYxOGZhMDg4OTA2MDkzNzJjJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.4BigHNvILxhWfbUvO9iWo5iMpFLxXb_6EDgPxuTmirQ)
+![thrashing.png](img/KimJiMin/thrashing.png)
 
 ### 3-1. 정의
 
@@ -45,7 +45,7 @@ PAGE_FAULT가 뜨면 Trap 영역으로 넘어가게 되는데 Trap 영역에서 
 
 #### (1) PFF
 
-![image](https://private-user-images.githubusercontent.com/102043957/373920737-681991d5-4d7a-473b-831d-965a393e8a78.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mjg1NDczMjksIm5iZiI6MTcyODU0NzAyOSwicGF0aCI6Ii8xMDIwNDM5NTcvMzczOTIwNzM3LTY4MTk5MWQ1LTRkN2EtNDczYi04MzFkLTk2NWEzOTNlOGE3OC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQxMDEwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MTAxMFQwNzU3MDlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT05ODUwMzlkYTE0YjQ4ZTU2NDBjZTMwYTA2YjQ4MGE5ZmFiOTNmZDFiOWYzNmZlMDU3NTdkNTIxYzNlZGY2ZTI4JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.nBeGLdTa1NW-nQLJHepWanAEsvIg5SMuCRjxj04OQKk)
+![pff.png](img/KimJiMin/pff.png)
 
 스레싱이 발생하는 이유는 근본적으로 Page Fault가 많이 발생하기 때문이다. Page Fault 비율이 높다면 해당 프로세스가 더 많은 프레임을 필요로 한다는 것을 의미하고 Page Fault 비율이 낮다는 것은 해당 프로세스가 너무 많은 프레임을 가지고 있다는 것을 의미한다.
 
@@ -55,7 +55,7 @@ PAGE_FAULT가 뜨면 Trap 영역으로 넘어가게 되는데 Trap 영역에서 
 
 작업 공간 모델은 운영체제가 메모리 관리를 할 때 **지역성**을 활용하는 모델을 말한다. 지역성을 잘 고려하여 현재 시점으로부터 이전에 실행된 일정한 메모리 참조만을 working set으로 구분하고 working set을 메모리에 할당한다. 이 구간을 working set window라고 한다.
 
-![image](https://private-user-images.githubusercontent.com/102043957/374035632-3586ea7a-7f7e-4b48-86fe-471cd3615e73.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mjg1NDczMjksIm5iZiI6MTcyODU0NzAyOSwicGF0aCI6Ii8xMDIwNDM5NTcvMzc0MDM1NjMyLTM1ODZlYTdhLTdmN2UtNGI0OC04NmZlLTQ3MWNkMzYxNWU3My5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQxMDEwJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MTAxMFQwNzU3MDlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1lNDgzZDJiN2VlMGVhY2EyMjVlYzEyNmZhMzU5MThmYjIyNTk1ZmE3OTZjNmNiOTI2YzllMWUyOWM1NjIzNDUxJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.jAs2X8iFBXZiShTs6cx5KYNHhYCEQCgBRtp6FAuPsyI)
+![working_set.png](img/KimJiMin/working_set.png)
 
 위와 같이 델타값에 해당하는 값이 working set window가 되고, 이 페이지 집합을 working set이라고 한다. window를 계속 이동하면서 working set 내용을 갱신한다. 이를 통해 Page Fault는 working set window가 이동할 때만 발생하게 된다.
 
